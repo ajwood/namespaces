@@ -1,7 +1,7 @@
+print("file_b.py is getting executed")
+
 from file_a import A
 from file_a import B
-
-print("file_b.py is getting executed")
 
 # Note this gets set when the file is loaded
 global_A = 'global_A (in file_b)'
@@ -18,12 +18,6 @@ class C(object):
         # These don't exist locally, so better exist in the global namespace
         self.myglobal_A = global_A
         self.myglobal_B = global_B
-
-    def g(self):
-        print 'calling g in a C object'
-
-
-
 
 
 if __name__ == '__main__':
