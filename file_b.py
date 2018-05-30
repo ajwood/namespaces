@@ -27,8 +27,8 @@ if __name__ == '__main__':
     # Note this gets set when the __main__ block runs
     global_B = 'global_B (in file_b)'
 
-    a = A('123 from file_a main')
-    b = B('xzy from file_a main')
+    a = A('123 from file_a main', global_B)
+    b = B('xzy from file_a main', global_B)
 
     a.say_something()
     b.say_something()

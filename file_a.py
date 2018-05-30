@@ -6,7 +6,7 @@ global_A = 'global_A (in file_a)'
 
 class A(object):
 
-    def __init__(self, attr):
+    def __init__(self, attr, gb):
 
         print "instantiating an A object"
 
@@ -15,7 +15,7 @@ class A(object):
 
         # These don't exist locally, so better exist in the global namespace
         self.myglobal_A = global_A
-        self.myglobal_B = global_B
+        self.myglobal_B = gb
 
     def __str__(self):
         """A pretty printer"""
@@ -30,7 +30,7 @@ class A(object):
 
 class B(object):
 
-    def __init__(self, attr):
+    def __init__(self, attr, gb):
 
         print "instantiating a B object"
 
@@ -39,7 +39,7 @@ class B(object):
 
         # These don't exist locally, so better exist in the global namespace
         self.myglobal_A = global_A
-        self.myglobal_B = global_B
+        self.myglobal_B = gb
 
     def __str__(self):
         """A pretty printer"""
@@ -59,8 +59,8 @@ if __name__ == '__main__':
     # Note this gets set when the __main__ block runs
     global_B = 'global_B'
 
-    a = A('123 from file_a main')
-    b = B('xzy from file_a main')
+    a = A('123 from file_a main', global_B)
+    b = B('xzy from file_a main', global_B)
 
     a.say_something()
     b.say_something()
